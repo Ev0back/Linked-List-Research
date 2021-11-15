@@ -6,7 +6,7 @@ public class Hamlet
 {
 
 	final static String inputFileName = "War and Peace.txt";
-
+	
 	public static void main(String[] args)
 	{
 		
@@ -25,13 +25,13 @@ public class Hamlet
 
 		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" };
 
-		
+		// can use command prompt to read multiple files at once/back to back
 		String filename = (args.length>0) ? args[0] : "ALL.txt";
 		
 		
 		
 		FileInputStream fin;
-
+		// running file to fill out java buffers
 		try
 		{
 
@@ -47,6 +47,7 @@ public class Hamlet
 			e.printStackTrace();
 		}
 		
+		// Reading and parsing time
 		double rpSTime = System.nanoTime();
 		try
 		{
@@ -64,123 +65,125 @@ public class Hamlet
 		}
 		double rpETime = System.nanoTime();
 		System.out.println("Time of RP: "+(rpETime-rpSTime));
-//		double list1STime = System.nanoTime();
-//		try
-//		{
-//			fin = new FileInputStream(filename);
-//			Scanner finScanner = new Scanner(fin);
-//			while (finScanner.hasNext())
-//			{
-//				String word = (finScanner.next());
-//				word = word.toLowerCase();
-//				word = cleanWord(word);
-//				if (word.compareTo("") == 0)
-//				{
-//					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
-//				}
-//				Lists[0].add(word);
-//
-//			}
-//			finScanner.close();
-//		} catch (FileNotFoundException e)
-//		{
-//			e.printStackTrace();
-//		}
-//		double list1ETime = System.nanoTime();
-//		
-//		try
-//		{
-//			fin = new FileInputStream(filename);
-//			Scanner finScanner = new Scanner(fin);
-//			while (finScanner.hasNext())
-//			{
-//				String word = (finScanner.next());
-//				word = word.toLowerCase();
-//				word = cleanWord(word);
-//				if (word.compareTo("") == 0)
-//				{
-//					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
-//				}
-//				Lists[1].add(word);
-//
-//			}
-//			finScanner.close();
-//		} catch (FileNotFoundException e)
-//		{
-//			e.printStackTrace();
-//		}
-//		double list2ETime = System.nanoTime();
-//		
-//		try
-//		{
-//			fin = new FileInputStream(filename);
-//			Scanner finScanner = new Scanner(fin);
-//			while (finScanner.hasNext())
-//			{
-//				String word = (finScanner.next());
-//				word = word.toLowerCase();
-//				word = cleanWord(word);
-//				if (word.compareTo("") == 0)
-//				{
-//					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
-//				}
-//
-//				Lists[2].add(word);
-//			}
-//			finScanner.close();
-//		} catch (FileNotFoundException e)
-//		{
-//			e.printStackTrace();
-//		}
-//		double list3ETime = System.nanoTime();
-//		
-//		try
-//		{
-//			fin = new FileInputStream(filename);
-//			Scanner finScanner = new Scanner(fin);
-//			while (finScanner.hasNext())
-//			{
-//				String word = (finScanner.next());
-//				word = word.toLowerCase();
-//				word = cleanWord(word);
-//				if (word.compareTo("") == 0)
-//				{
-//					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
-//				}
-//				Lists[3].add(word);
-//			}
-//			finScanner.close();
-//		} catch (FileNotFoundException e)
-//		{
-//			e.printStackTrace();
-//		}
-//		
-//		
-//		double list4ETime = System.nanoTime();
-//		
-//		double[] Timelist= {(list1ETime-list1STime)/1000000, (list2ETime-list1ETime)/1000000,
-//							(list3ETime-list2ETime)/1000000,(list4ETime-list3ETime)/1000000};
-//		
-//		for(int i=0; i<=3;i++)
-//			{System.out.print("Time of list "+i+":"+Timelist[i]+"\n");}
-//		
-//		System.out.println(" #     List Name     Run Time Vocabulary Total Words   Key Comp     Ref Chgs\n"
-//				+ "-- ----------------- -------- ---------- ----------- ------------ ------------");
-//		for(int i=0; i<=3; i++)
-//		{
-//			System.out.printf("%1d  %-17s %8.3f %-10d %-11d %-12d %-12d\n",i+1,ListNames[i],(double)Timelist[i],
-//					Lists[i].getDistinctWords(),Lists[i].getTotalWords(),Lists[i].getKeyCompare(),
-//					Lists[i].getRefChanges());
-//		}
-//
-	}
+		
+		// filling each linked list and timing them
+		double list1STime = System.nanoTime();
+		try
+		{
+			fin = new FileInputStream(filename);
+			Scanner finScanner = new Scanner(fin);
+			while (finScanner.hasNext())
+			{
+				String word = (finScanner.next());
+				word = word.toLowerCase();
+				word = cleanWord(word);
+				if (word.compareTo("") == 0)
+				{
+					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
+				}
+				Lists[0].add(word);
 
+			}
+			finScanner.close();
+		} catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		double list1ETime = System.nanoTime();
+		
+		try
+		{
+			fin = new FileInputStream(filename);
+			Scanner finScanner = new Scanner(fin);
+			while (finScanner.hasNext())
+			{
+				String word = (finScanner.next());
+				word = word.toLowerCase();
+				word = cleanWord(word);
+				if (word.compareTo("") == 0)
+				{
+					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
+				}
+				Lists[1].add(word);
+
+			}
+			finScanner.close();
+		} catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		double list2ETime = System.nanoTime();
+		
+		try
+		{
+			fin = new FileInputStream(filename);
+			Scanner finScanner = new Scanner(fin);
+			while (finScanner.hasNext())
+			{
+				String word = (finScanner.next());
+				word = word.toLowerCase();
+				word = cleanWord(word);
+				if (word.compareTo("") == 0)
+				{
+					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
+				}
+
+				Lists[2].add(word);
+			}
+			finScanner.close();
+		} catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		double list3ETime = System.nanoTime();
+		
+		try
+		{
+			fin = new FileInputStream(filename);
+			Scanner finScanner = new Scanner(fin);
+			while (finScanner.hasNext())
+			{
+				String word = (finScanner.next());
+				word = word.toLowerCase();
+				word = cleanWord(word);
+				if (word.compareTo("") == 0)
+				{
+					continue; // Its empty word therefore we don't insert into our LLs, lets skip it
+				}
+				Lists[3].add(word);
+			}
+			finScanner.close();
+		} catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		double list4ETime = System.nanoTime();
+		
+		double[] Timelist= {(list1ETime-list1STime)/1000000, (list2ETime-list1ETime)/1000000,
+							(list3ETime-list2ETime)/1000000,(list4ETime-list3ETime)/1000000};
+		
+		for(int i=0; i<=3;i++)
+			{System.out.print("Time of list "+i+":"+Timelist[i]+"\n");}
+		
+		System.out.println(" #     List Name     Run Time Vocabulary Total Words   Key Comp     Ref Chgs\n"
+				+ "-- ----------------- -------- ---------- ----------- ------------ ------------");
+		for(int i=0; i<=3; i++)
+		{
+			System.out.printf("%1d  %-17s %8.3f %-10d %-11d %-12d %-12d\n",i+1,ListNames[i],(double)Timelist[i],
+					Lists[i].getDistinctWords(),Lists[i].getTotalWords(),Lists[i].getKeyCompare(),
+					Lists[i].getRefChanges());
+		}
+
+	}
+	
+	//method checks is a char is some form of punctuation
 	private static boolean isPunctuation(char letter)
 	{
 		String punctuation = "!@#$%^&*()_+-=[]\\{}|;':\"`~,./<>?";
 		return punctuation.indexOf(letter) == -1 ? false : true;
 	}
 
+	//method for cleaning words of trailing and leading punctuation
 	private static String cleanWord(String dirtyWord)
 	{
 		String cleanWord = dirtyWord;
@@ -198,10 +201,7 @@ public class Hamlet
 			{
 				cleanWord = cleanWord.substring(0, cleanWord.length() - 1);
 			}
-
 		}
-
-		// System.out.println(cleanWord);
 		return cleanWord;
 	}
 
